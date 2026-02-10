@@ -1,4 +1,4 @@
-/* General styles for the page */
+/* Fonts, margins, layout base */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -6,75 +6,38 @@ body {
 
 main {
     padding: 0;
+    margin-left: 200px;   
 }
 
-
-#container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
-    gap: 20px;
-    justify-content: center;
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
-
-/* Article styles with transition */
-article {
-    color: lightgrey;                
-    overflow: hidden;
-    max-height: 260px;             
-    text-align: justify;
-    transition: 
-        color 2s ease,
-        max-height 2s ease;
-}
-
-/* Darker text + expansion on hover */
-article:hover {
+/* header alignment and styling */
+header {
+    background: red;
     color: black;
-    max-height: 1000px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 28px;
+    margin: 0;
 }
 
-/* First letter of main article text ONLY */
-article p:first-of-type::first-letter {
+/* Page title: "Recent Journal Articles" */
+h1 {
     font-family: "Times New Roman", Times, serif;
-    font-size: 36px;
-    font-weight: normal;
+    text-align: center;
 }
 
-/* Read more link and arrow */
-a[href*="google"] {
-    position: relative;
-    padding-right: 24px;
-    text-decoration: underline;
-    color: blue;
-}
 
-/* Arrow icon after Google links */
-a[href*="google"]::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 2px;
-    width: 16px;
-    height: 16px;
-    background-image: url("arrowarrow.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-/* Navigation styles */
+/* Navigation and jump menu left side hovering */
 nav {
     position: fixed;
-    left: 0;
     top: 0;
+    left: 0;
     width: 200px;
-    background: black;
     height: 100%;
+    background: black;
     padding-top: 20px;
 }
 
+/* Navigation buttons */
 nav button {
     display: block;
     width: 100%;
@@ -87,12 +50,12 @@ nav button {
     transition: background-color 0.5s ease;
 }
 
-/* Button hover color change */
+/* Navigation button hover */
 nav button:hover {
     background-color: goldenrod;
 }
 
-/* Recent Articles and Jump Menu */
+/* Jump menu hidden */
 #jumpMenu {
     list-style: none;
     padding: 0;
@@ -101,45 +64,92 @@ nav button:hover {
     display: none;
 }
 
-/* Show menu when hovering Recent Articles */
+/* Show jump menu on hover */
 #recentArticles:hover + #jumpMenu,
 #jumpMenu:hover {
     display: block;
 }
 
+/* Jump menu links */
 #jumpMenu li a {
     display: block;
     padding: 8px 12px;
     text-align: center;
     text-decoration: none;
     color: blue;
-    transition: 
+    transition:
         background-color 0.5s ease,
         color 0.5s ease;
 }
 
-/* Hover effect for jump menu links */
+/* Jump menu link hover */
 #jumpMenu li a:hover {
     background-color: blue;
     color: white;
 }
 
-/* Header and main content */
-header {
-    background: red;
+/* Articles layout */
+#container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+    gap: 20px;
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Article alignment, styles, and transition */
+article {
+    color: lightgrey;        /* Initial light text */
+    overflow: hidden;
+    max-height: 350px;       /* Collapsed height */
+    text-align: justify;
+    transition:
+        color 2s ease,
+        max-height 2s ease;
+}
+
+/* Article hover effect */
+article:hover {
     color: black;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 28px;
-    margin: 0;
+    max-height: 1000px;
 }
 
-h1 {
+/* First letter of article text */
+article p:first-of-type::first-letter {
     font-family: "Times New Roman", Times, serif;
-    text-align: center;
+    font-size: 36px;
+    font-weight: normal;
 }
 
-/* Push main content away from nav */
-main {
-    margin-left: 200px;
+/* Link to google.com */
+a[href*="google"] {
+    position: relative;
+    padding-right: 22px;   /* space for arrow */
+    color: blue;
+    text-decoration: underline;
+}
+
+/* Arrow icon for the google link*/
+a[href*="google"]::after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 6px;      
+    background-image: url("arrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+
+/* Thank you from last assignment */
+#thanks {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #9dd7f5;
+    padding: 20px;
+    font-size: 24px;
 }
