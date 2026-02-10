@@ -1,0 +1,145 @@
+/* ------------------------------
+   GENERAL RESET / BASE
+--------------------------------*/
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    padding: 20px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* ------------------------------
+   ARTICLE STYLES + TRANSITIONS
+--------------------------------*/
+article {
+    color: #b5b5b5;                 /* lightly-colored text */
+    overflow: hidden;
+    max-height: 260px;              /* collapsed height */
+    transition: 
+        color 2s ease,
+        max-height 2s ease;
+}
+
+/* Darker text + expansion on hover */
+article:hover {
+    color: #444;
+    max-height: 1000px;
+}
+
+/* First letter of main article text ONLY */
+article p:first-of-type::first-letter {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 36px;
+    font-weight: normal;
+}
+
+/* ------------------------------
+   READ MORE LINK + ARROW
+--------------------------------*/
+a[href*="google"] {
+    position: relative;
+    padding-right: 24px;
+    text-decoration: underline;
+    color: blue;
+}
+
+/* Arrow icon after Google links */
+a[href*="google"]::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background-image: url("arrowarrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* ------------------------------
+   NAVIGATION
+--------------------------------*/
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    background: black;
+    height: 100%;
+    padding-top: 20px;
+}
+
+nav button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: blue;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+/* Button hover color change */
+nav button:hover {
+    background-color: goldenrod;
+}
+
+/* ------------------------------
+   RECENT ARTICLES JUMP MENU
+--------------------------------*/
+#jumpMenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: goldenrod;
+    display: none;
+}
+
+/* Show menu when hovering Recent Articles */
+#recentArticles:hover + #jumpMenu,
+#jumpMenu:hover {
+    display: block;
+}
+
+#jumpMenu li a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: blue;
+    transition: 
+        background-color 0.5s ease,
+        color 0.5s ease;
+}
+
+/* Hover effect for jump menu links */
+#jumpMenu li a:hover {
+    background-color: blue;
+    color: white;
+}
+
+/* ------------------------------
+   HEADER
+--------------------------------*/
+header {
+    background: red;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    margin-left: 200px;
+}
+
+/* Push main content away from nav */
+main {
+    margin-left: 200px;
+}
