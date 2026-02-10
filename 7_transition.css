@@ -1,28 +1,30 @@
-/* ------------------------------
-   GENERAL RESET / BASE
---------------------------------*/
+/* General styles for the page */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
-    padding: 20px;
+    padding: 0;
 }
+
 
 #container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+    gap: 20px;
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-/* ------------------------------
-   ARTICLE STYLES + TRANSITIONS
---------------------------------*/
+
+/* Article styles with transition */
 article {
-    color: #b5b5b5;                 /* lightly-colored text */
+    color: lightgrey;                
     overflow: hidden;
-    max-height: 260px;              /* collapsed height */
+    max-height: 260px;             
+    text-align: justify;
     transition: 
         color 2s ease,
         max-height 2s ease;
@@ -30,7 +32,7 @@ article {
 
 /* Darker text + expansion on hover */
 article:hover {
-    color: #444;
+    color: black;
     max-height: 1000px;
 }
 
@@ -41,9 +43,7 @@ article p:first-of-type::first-letter {
     font-weight: normal;
 }
 
-/* ------------------------------
-   READ MORE LINK + ARROW
---------------------------------*/
+/* Read more link and arrow */
 a[href*="google"] {
     position: relative;
     padding-right: 24px;
@@ -64,9 +64,7 @@ a[href*="google"]::after {
     background-repeat: no-repeat;
 }
 
-/* ------------------------------
-   NAVIGATION
---------------------------------*/
+/* Navigation styles */
 nav {
     position: fixed;
     left: 0;
@@ -94,9 +92,7 @@ nav button:hover {
     background-color: goldenrod;
 }
 
-/* ------------------------------
-   RECENT ARTICLES JUMP MENU
---------------------------------*/
+/* Recent Articles and Jump Menu */
 #jumpMenu {
     list-style: none;
     padding: 0;
@@ -114,6 +110,7 @@ nav button:hover {
 #jumpMenu li a {
     display: block;
     padding: 8px 12px;
+    text-align: center;
     text-decoration: none;
     color: blue;
     transition: 
@@ -127,16 +124,19 @@ nav button:hover {
     color: white;
 }
 
-/* ------------------------------
-   HEADER
---------------------------------*/
+/* Header and main content */
 header {
     background: red;
     color: black;
     text-align: center;
-    padding: 20px;
+    padding: 10px 0;
     font-size: 28px;
-    margin-left: 200px;
+    margin: 0;
+}
+
+h1 {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
 }
 
 /* Push main content away from nav */
